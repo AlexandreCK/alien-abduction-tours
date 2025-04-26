@@ -3,6 +3,7 @@ import HeroSection from "./components/HeroSection";
 import FeaturesSection from "./components/FeaturesSection";
 import DestinationsSection from "./components/DestinationsSection";
 import Footer from "./components/Footer";
+import RegisterSection from "./components/RegisterSection";
 
 function App() {
     return (
@@ -11,6 +12,7 @@ function App() {
             <main className="flex-grow">
                 <HeroSection />
                 <FeaturesSection />
+                <RegisterSection />
                 <DestinationsSection />
             </main>
             <Footer />
