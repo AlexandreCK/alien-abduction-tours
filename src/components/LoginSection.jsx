@@ -2,16 +2,16 @@ import { useState } from "react";
 
 function LoginSection() {
     const [formData, setFormData] = useState({
-        email: "",
+        username: "",
         password: "",
     });
 
-    const handleChange = (e) => {
-        setFormData({ ...formData, [e.target.name]: e.target.value });
+    const handleChange = (event) => {
+        setFormData({ ...formData, [event.target.name]: event.target.value });
     };
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
+    const handleSubmit = (event) => {
+        event.preventDefault();
 
         console.log("User login attempted with:", formData);
         alert("Login functionality is temporarily simulated.");
@@ -26,15 +26,15 @@ function LoginSection() {
                     className="bg-white rounded-2xl shadow-lg p-8 space-y-6 text-gray-800"
                 >
                     <div>
-                        <label className="block text-sm font-semibold mb-2">Email</label>
+                        <label className="block text-sm font-semibold mb-2">Username</label>
                         <input
-                            type="email"
-                            name="email"
-                            value={formData.email}
+                            type="text"
+                            name="username"
+                            value={formData.username}
                             onChange={handleChange}
                             required
                             className="w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-400"
-                            placeholder="youremail@example.com"
+                            placeholder="Your Username"
                         />
                     </div>
                     <div>

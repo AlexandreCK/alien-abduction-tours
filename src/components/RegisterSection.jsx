@@ -1,27 +1,37 @@
 import { useState } from "react";
 
-function RegisterSection() {
+function AuthSection() {
     const [formData, setFormData] = useState({
-        name: "",
-        email: "",
+        username: "",
         password: "",
     });
 
-    const handleChange = (e) => {
-        setFormData({ ...formData, [e.target.name]: e.target.value });
+    const [isLogin, setIsLogin] = useState(false); // status switch login registration
+
+    const handleChange = (event) => {
+        setFormData({ ...formData, [event.target.name]: event.target.value });
     };
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log("Data submission is temporarily disabled. Database is under construction.");
-        alert("Registration is temporarily unavailable.");
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        if (isLogin) {
+            console.log("Logging in with:", formData);
+            alert("Login is temporarily unavailable. Database is under construction.");
+        } else {
+            console.log("Registering user:", formData);
+            alert("Registration is temporarily unavailable. Database is under construction.");
+        }
+    };
+
+    const toggleForm = () => {
+        setIsLogin(!isLogin); //switch login registration
     };
 
     return (
         <section className="bg-gradient-to-b from-purple-900 to-indigo-800 py-20 w-full text-white">
             <div className="container mx-auto px-4 max-w-lg">
                 <h2 className="text-3xl font-bold text-center mb-8">
-                    Join the Space Explorers
+                    {isLogin ? "Login to your Account" : "Join the Space Explorers"}
                 </h2>
                 <form
                     onSubmit={handleSubmit}
@@ -29,30 +39,16 @@ function RegisterSection() {
                 >
                     <div>
                         <label className="block text-sm font-semibold mb-2">
-                            Name
+                            Username
                         </label>
                         <input
                             type="text"
-                            name="name"
-                            value={formData.name}
+                            name="username"
+                            value={formData.username}
                             onChange={handleChange}
                             required
                             className="w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-400"
-                            placeholder="John Doe"
-                        />
-                    </div>
-                    <div>
-                        <label className="block text-sm font-semibold mb-2">
-                            Email
-                        </label>
-                        <input
-                            type="email"
-                            name="email"
-                            value={formData.email}
-                            onChange={handleChange}
-                            required
-                            className="w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-400"
-                            placeholder="john@example.com"
+                            placeholder="Your username"
                         />
                     </div>
                     <div>
@@ -73,12 +69,35 @@ function RegisterSection() {
                         type="submit"
                         className="w-full bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-3 px-6 rounded-lg transition duration-300"
                     >
-                        Register
+                        {isLogin ? "Login" : "Register"}
                     </button>
                 </form>
+                <p className="text-center text-gray-200 mt-4">
+                    {isLogin ? (
+                        <>
+                            Don't have an account?{" "}
+                            <span
+                                onClick={toggleForm}
+                                className="cursor-pointer text-indigo-400 hover:text-indigo-500"
+                            >
+                                Sign up
+                            </span>
+                        </>
+                    ) : (
+                        <>
+                            Already have an account?{" "}
+                            <span
+                                onClick={toggleForm}
+                                className="cursor-pointer text-indigo-400 hover:text-indigo-500"
+                            >
+                                Login
+                            </span>
+                        </>
+                    )}
+                </p>
             </div>
         </section>
     );
 }
 
-export default RegisterSection;
+export default AuthSection;

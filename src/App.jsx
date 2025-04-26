@@ -4,7 +4,6 @@ import FeaturesSection from "./components/FeaturesSection";
 import DestinationsSection from "./components/DestinationsSection";
 import Footer from "./components/Footer";
 import RegisterSection from "./components/RegisterSection";
-import LoginSection from "./components/LoginSection";
 
 function App() {
     return (
@@ -14,7 +13,6 @@ function App() {
                 <HeroSection />
                 <FeaturesSection />
                 <RegisterSection />
-                {/* <LoginSection /> */}
                 <DestinationsSection />
             </main>
             <Footer />
