@@ -12,14 +12,34 @@ function AuthSection() {
         setFormData({ ...formData, [event.target.name]: event.target.value });
     };
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
         if (isLogin) {
             console.log("Logging in with:", formData);
             alert("Login is temporarily unavailable. Database is under construction.");
         } else {
-            console.log("Registering user:", formData);
-            alert("Registration is temporarily unavailable. Database is under construction.");
+            try {
+                const response = await fetch('http://localhost:5000/api/auth/register', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        username: formData.username,
+                        password: formData.password,
+                    }),
+                });
+
+                if (response.ok) {
+                    alert('User successfully registered!');
+                    console.log('User registered:', formData);
+                } else {
+                    alert('Registration failed. Please try again.');
+                }
+            } catch (error) {
+                console.error('Error during registration:', error);
+                alert('An error occurred during registration.');
+            }
         }
     };
 
