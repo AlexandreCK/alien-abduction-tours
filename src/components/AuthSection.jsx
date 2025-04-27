@@ -7,25 +7,73 @@ function AuthSection() {
     });
 
     const [isLogin, setIsLogin] = useState(false); // status switch login registration
+    const [isAuthenticated, setIsAuthenticated] = useState(false); // track if the user is authenticated
 
     const handleChange = (event) => {
         setFormData({ ...formData, [event.target.name]: event.target.value });
     };
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
         if (isLogin) {
-            console.log("Logging in with:", formData);
-            alert("Login is temporarily unavailable. Database is under construction.");
+            try {
+                const response = await fetch('http://localhost:5000/api/auth/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        username: formData.username,
+                        password: formData.password,
+                    }),
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    alert('Login successful!');
+                    console.log('Login successful:', data);
+                    setIsAuthenticated(true);
+                    window.location.hash = 'destinations'; // redirect
+                } else {
+                    alert('Incorrect username or password. Please try again.');
+                }
+            } catch (error) {
+                alert('An error occurred during login.');
+                console.error('Error during login:', error);
+            }
         } else {
-            console.log("Registering user:", formData);
-            alert("Registration is temporarily unavailable. Database is under construction.");
+            try {
+                const response = await fetch('http://localhost:5000/api/auth/register', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        username: formData.username,
+                        password: formData.password,
+                    }),
+                });
+
+                if (response.ok) {
+                    alert('User successfully registered!');
+                    console.log('User registered:', formData);
+                } else {
+                    alert('Registration failed. Please try again.');
+                }
+            } catch (error) {
+                console.error('Error during registration:', error);
+                alert('An error occurred during registration.');
+            }
         }
     };
 
     const toggleForm = () => {
         setIsLogin(!isLogin); //switch login registration
     };
+
+    if (isAuthenticated) {
+        return null;
+    }
 
     return (
         <section className="bg-gradient-to-b from-purple-900 to-indigo-800 py-20 w-full text-white">
