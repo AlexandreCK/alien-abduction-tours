@@ -1,15 +1,18 @@
 function DestinationCard({ title, description, image }) {
     return (
-        <div className="bg-white rounded-lg shadow-md overflow-hidden">
-            <div className="h-48 bg-indigo-100 flex items-center justify-center">
-                <span className="text-6xl">{image}</span>
+        <div className="bg-white/10 backdrop-blur-md rounded-lg shadow-lg overflow-hidden transform transition duration-500 hover:scale-105 hover:shadow-xl border border-white/20">
+            <div
+                className="relative h-64 w-full overflow-hidden rounded-t-lg bg-cover bg-center"
+                style={{ backgroundImage: `url(${image})` }}
+            >
+                <div className="absolute inset-0"></div>
             </div>
-            <div className="p-6">
-                <h3 className="text-xl font-bold text-indigo-900 mb-2">
+            <div className="p-6 bg-transparent">
+                <h3 className="text-xl font-bold text-white mb-2">
                     {title}
                 </h3>
-                <p className="text-gray-800">{description}</p>
-                <button className="mt-4 bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-2 px-4 rounded">
+                <p className="text-gray-200">{description}</p>
+                <button className="mt-4 bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded transition-colors duration-300">
                     Book Now
                 </button>
             </div>

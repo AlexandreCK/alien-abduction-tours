@@ -33,6 +33,31 @@ function Header() {
                                 Budget
                             </a>
                         </li>
+                        {localStorage.getItem('fakeLoggedInUser') ? (
+                            <li className="flex items-center space-x-4">
+                                <span className="bg-white text-indigo-900 px-4 py-2 rounded-md font-medium hover:bg-indigo-100 transition-colors">
+                                    {localStorage.getItem('fakeLoggedInUser')}
+                                </span>
+                                <button
+                                    onClick={() => {
+                                        localStorage.removeItem('fakeLoggedInUser');
+                                        window.location.reload();
+                                    }}
+                                    className="bg-white text-indigo-900 px-4 py-2 rounded-md font-medium hover:bg-indigo-100 transition-colors"
+                                >
+                                    Logout
+                                </button>
+                            </li>
+                        ) : (
+                            <li>
+                                <a
+                                    href="#login"
+                                    className="bg-white text-indigo-900 px-4 py-2 rounded-md font-medium hover:bg-indigo-100 transition-colors"
+                                >
+                                    Login
+                                </a>
+                            </li>
+                        )}
                     </ul>
                 </nav>
             </div>
