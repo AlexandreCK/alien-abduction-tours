@@ -187,11 +187,8 @@ function QuoteRequestForm() {
                                         value={formData.travelers}
                                         onChange={handleChange}
                                         required
-                                        className="w-full px-4 py-3 border border-indigo-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-300 bg-indigo-50 bg-opacity-50 text-indigo-900"
+                                        className="w-full px-4 py-3 border border-indigo-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-300 bg-indigo-50 bg-opacity-50 text-indigo-900 pr-10"
                                     />
-                                    <div className="absolute right-3 top-1/2 transform -translate-y-1/2 text-xs text-indigo-500 font-medium">
-                                        beings
-                                    </div>
                                 </div>
                             </div>
                             <div>
@@ -204,13 +201,8 @@ function QuoteRequestForm() {
                                         value={formData.departureDate}
                                         onChange={handleChange}
                                         required
-                                        className="w-full px-4 py-3 border border-indigo-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-300 bg-indigo-50 bg-opacity-50 text-indigo-900"
+                                        className="w-full px-4 py-3 border border-indigo-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-300 bg-indigo-50 bg-opacity-50 text-indigo-900 pr-10"
                                     />
-                                    <div className="absolute right-3 top-1/2 transform -translate-y-1/2">
-                                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-indigo-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                                        </svg>
-                                    </div>
                                 </div>
                             </div>
                             <div className="md:col-span-2">
