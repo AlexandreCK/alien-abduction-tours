@@ -3,6 +3,7 @@ import HeroSection from "./components/HeroSection";
 import FeaturesSection from "./components/FeaturesSection";
 import DestinationsSection from "./components/DestinationsSection";
 import Footer from "./components/Footer";
+import QuoteRequestForm from "./components/QuoteRequestForm";
 import AuthSection from "./components/AuthSection";
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
                 <FeaturesSection />
                 <AuthSection />
                 <DestinationsSection />
+                <QuoteRequestForm />
             </main>
             <Footer />
         </div>

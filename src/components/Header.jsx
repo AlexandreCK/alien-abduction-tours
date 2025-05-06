@@ -25,6 +25,14 @@ function Header() {
                                 Destinations
                             </a>
                         </li>
+                        <li>
+                            <a
+                                href="#budget"
+                                className="hover:text-indigo-300 font-medium"
+                            >
+                                Budget
+                            </a>
+                        </li>
                     </ul>
                 </nav>
             </div>
