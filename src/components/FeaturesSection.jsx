@@ -29,9 +29,10 @@ function FeaturesSection() {
     ];
 
     return (
-        <section id="features" className="py-16 bg-gray-100">
-            <div className="container mx-auto px-4">
-                <h2 className="text-3xl font-bold text-center text-indigo-900 mb-12">
+        <section id="features" className="py-16 bg-[url('/src/assets/background-saturn-and-star.png')] bg-cover bg-center relative">
+            <div className="absolute inset-0 bg-indigo-900/70"></div>
+            <div className="container mx-auto px-4 relative z-10">
+                <h2 className="text-3xl font-bold text-center text-white mb-12">
                     Key Features
                 </h2>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

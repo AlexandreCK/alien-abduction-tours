@@ -9,9 +9,12 @@ function HeroSection() {
                     Our mission is to make space travel accessible and enjoyable
                     for everyone.
                 </p>
-                <button className="bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-3 px-6 rounded-lg">
+                <a 
+                    href="#destinations"
+                    className="inline-block bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-3 px-6 rounded-lg transition-colors"
+                >
                     Explore Tours
-                </button>
+                </a>
             </div>
         </section>
     );
