@@ -4,6 +4,7 @@ import FeaturesSection from "./components/FeaturesSection";
 import DestinationsSection from "./components/DestinationsSection";
 import Footer from "./components/Footer";
 import QuoteRequestForm from "./components/QuoteRequestForm";
+import AuthSection from "./components/AuthSection";
 
 function App() {
     return (
@@ -12,6 +13,7 @@ function App() {
             <main className="flex-grow">
                 <HeroSection />
                 <FeaturesSection />
+                <AuthSection />
                 <DestinationsSection />
                 <QuoteRequestForm />
             </main>
